@@ -1,27 +1,31 @@
 import React, { Component, useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
-function App() {
-  //Define State
-  const [name, setName] = useState({firstName: 'name', surname: 'surname'});
-  const [title, setTitle] = useState('BIO');
-  
-  useEffect(() => {
-    setName({ ...name, FirstName: 'Shedrack', surname: 'Akintayo'})
-    setTitle('My Full Name')
-  }, []);
+// Class component
+class Parent extends React.Component {
+  render () {
+   return(
+     <div>
+      <Child eyeColor={'blue'} />
+      <p> line </p>
+      <Child1 eyeColor={'yellow'} />
+    </div>
+   )
+  }
+ }// Functional component
+ const Child = ( props ) => {
+   return (
+     <span style={{backgroundColor: props.eyeColor}}  > child </span>
+   )
+ }
 
-  return(
-      <div>
-          <h1>Title: {title}</h1>
-          <h3>Name: {name.firstName}</h3>
-          <h3>Name: {name.FirstName}</h3>
-          <h3>Surname: {name.surname}</h3>
-      </div>
+ let Child1 = function ( props) {
+  return (
+    <span style={{backgroundColor: props.eyeColor}}  > child one </span>
   );
-};
+ }
 
 ReactDOM.render(
-    <App />,
+    <Parent />,
   document.getElementById('root')
 )
