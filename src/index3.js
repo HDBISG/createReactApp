@@ -2,17 +2,17 @@ import React, { Component, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 function App() {
-  const age = useState(19);
-  const handleClick = () => age[1](age[0] + 1)
+  const [age, setAge] = useState(19);
+  const handleClick = () => setAge(age + 1)
   //const handleDecreaseClick = () => setAge(age - 1)
 
   let handleDecreaseClick = function() {
-    age[1]( age[0] - 1);
+    setAge( age - 1);
   }
 
   return (
       <div> 
-          I am {age[0]} Years Old 
+          I am {age} Years Old 
         <div> 
         <button onClick={handleClick}>Increase my age! </button>
         <button onClick={handleDecreaseClick}>Decrease my age! </button>
