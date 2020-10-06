@@ -1,73 +1,26 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, useState } from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-import { Provider, connect } from 'react-redux'
 
-// React component
-class Counter extends Component {
-  render() {
-    const { value, onIncreaseClick, onDecreaseClick } = this.props
-    return (
-      <div>
-        <span>{value}</span>
-        <button onClick={onIncreaseClick}>Increase</button>
-        <button onClick={onDecreaseClick}>Decrease</button>
+function App() {
+  const [age, setAge] = useState(19);
+  const handleClick = () => setAge(age + 1)
+  //const handleDecreaseClick = () => setAge(age - 1)
+
+  let handleDecreaseClick = function() {
+    setAge( age - 1);
+  }
+
+  return (
+      <div> 
+          I am {age} Years Old 
+        <div> 
+        <button onClick={handleClick}>Increase my age! </button>
+        <button onClick={handleDecreaseClick}>Decrease my age! </button>
       </div>
-    )
-  }
+   </div> )
 }
-
-Counter.propTypes = {
-  value: PropTypes.number.isRequired,
-  onIncreaseClick: PropTypes.func.isRequired,
-  onDecreaseClick: PropTypes.func.isRequired
-}
-
-// Action
-const increaseAction = { type: 'increase', stepVal:3 }
-const decreaseAction = { type: 'decrease', stepVal:-2 }
-
-// Reducer
-function counter(state = { count: 0 }, action) {
-  const count = state.count
-  switch (action.type) {
-    case 'increase':
-      return { count: count + action.stepVal }
-      case 'decrease':
-        return { count: count + action.stepVal }
-    default:
-      return state
-  }
-}
-
-// Store
-const store = createStore(counter)
-
-// Map Redux state to component props
-function mapStateToProps(state) {
-  return {
-    value: state.count
-  }
-}
-
-// Map Redux actions to component props
-function mapDispatchToProps(dispatch) {
-  return {
-    onIncreaseClick: () => dispatch(increaseAction),
-    onDecreaseClick: () => dispatch(decreaseAction)
-  }
-}
-
-// Connected Component
-const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+    <App />,
   document.getElementById('root')
 )
