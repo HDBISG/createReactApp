@@ -1,17 +1,73 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
+
+// React component
+class Counter extends Component {
+  render() {
+    const { value, onIncreaseClick, onDecreaseClick } = this.props
+    return (
+      <div>
+        <span>{value}</span>
+        <button onClick={onIncreaseClick}>Increase</button>
+        <button onClick={onDecreaseClick}>Decrease</button>
+      </div>
+    )
+  }
+}
+
+Counter.propTypes = {
+  value: PropTypes.number.isRequired,
+  onIncreaseClick: PropTypes.func.isRequired,
+  onDecreaseClick: PropTypes.func.isRequired
+}
+
+// Action
+const increaseAction = { type: 'increase', stepVal:3 }
+const decreaseAction = { type: 'decrease', stepVal:-2 }
+
+// Reducer
+function counter(state = { count: 0 }, action) {
+  const count = state.count
+  switch (action.type) {
+    case 'increase':
+      return { count: count + action.stepVal }
+      case 'decrease':
+        return { count: count + action.stepVal }
+    default:
+      return state
+  }
+}
+
+// Store
+const store = createStore(counter)
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+    value: state.count
+  }
+}
+
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+  return {
+    onIncreaseClick: () => dispatch(increaseAction),
+    onDecreaseClick: () => dispatch(decreaseAction)
+  }
+}
+
+// Connected Component
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+)
