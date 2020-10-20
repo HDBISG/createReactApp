@@ -1,48 +1,63 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import "./styles.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 
-const Person = ({ personId }) => {
-  const [loading, setLoading] = useState(true);
-  const [person, setPerson] = useState({});
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://swapi.co/api/people/${personId}/`)
-      .then(response => response.json())
-      .then(data => {
-        setPerson(data);
-        setLoading(false);
-      });
-  }, [personId]);
-
-  if (loading === true) {
-    return <p>Loading ...</p>;
-  }
-
-  return (
-    <div>
-      <p>You're viewing: {person.name}</p>
-      <p>Height: {person.height}</p>
-      <p>Mass: {person.mass}</p>
-    </div>
-  );
-};
-
-function App() {
-  const [show, setShow] = useState("1");
-
-  return (
-    <div className="App">
-      <Person personId={show} />
-      <div>
-        Show:
-        <button onClick={() => setShow("1")}>Luke</button>
-        <button onClick={() => setShow("2")}>C-3PO</button>
-      </div>
-    </div>
-  );
+class App extends React.Component {
+   render() {
+      return (
+         <div>
+            <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            </ul>
+            {this.props.children}
+         </div>
+      )
+   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+
+class Home extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>Home...</h1>
+         </div>
+      )
+   }
+}
+
+
+class About extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>About...</h1>
+         </div>
+      )
+   }
+}
+
+
+class Contact extends React.Component {
+   render() {
+      return (
+         <div>
+            <h1>Contact...</h1>
+         </div>
+      )
+   }
+}
+
+
+ReactDOM.render((
+  <Router history = {browserHistory}>
+     <Route path = "/" component = {App}>
+        <IndexRoute component = {Home} />
+        <Route path = "home" component = {Home} />
+        <Route path = "about" component = {About} />
+        <Route path = "contact" component = {Contact} />
+     </Route>
+  </Router>
+), document.getElementById('app'))
