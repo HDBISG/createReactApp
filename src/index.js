@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import DropdownList from './DropdownList';
-import TestUseContext from './TestUseContext';
+import Page1 from './hook/Page1';
+import Page2 from './hook/Page2';
+import TestRef from './hook/TestRef';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <TestUseContext/>
+      <TestRef/>
     </div>
   );
 
