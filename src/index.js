@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Page1 from './hook/Page1';
-import Page2 from './hook/Page2';
-import TestRef from './hook/TestRef';
+import TestColor from './test1/TestColor';
+import ZIndex from './test1/ZIndex';
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <TestRef/>
+      <ZIndex/>
     </div>
   );
 
