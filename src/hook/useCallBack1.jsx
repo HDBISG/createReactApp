@@ -5,7 +5,7 @@ const functionsCounter = new Set()
 const Counter = () => {
   const [count, setCount] = useState(0)
   const [otherCounter, setOtherCounter] = useState(0)
-  /*
+  
     const increment = () => {
       console.log("increment", count);
       setCount(count + 1)
@@ -18,9 +18,9 @@ const Counter = () => {
       console.log("incrementOtherCounter", otherCounter);
       setOtherCounter(otherCounter + 1)
     }
-  */
+  
 
-  const increment = useCallback(() => { setCount(count + 1) }, [count]);
+  //const increment = useCallback(() => { setCount(count + 1) }, [count]);
 
 
 
