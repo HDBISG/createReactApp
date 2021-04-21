@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 //import ExampleMemo from "./hook/useMemo1";
-import UseDebounceTest from "./hook2/UseDebounceTest";
+import UseTitleTest from "./hook2/UseTitleTest";
 
 
 function App() {
   return (
     <div>
-      <UseDebounceTest />
+      <UseTitleTest />
     </div>
   );
 }
