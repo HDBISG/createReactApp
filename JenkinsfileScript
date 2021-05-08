@@ -9,9 +9,9 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                bat "rmdir -s -q D:\tomcat9\webapps\ROOT"
-                bar "mkdir D:\tomcat9\webapps\ROOT"
-                bat "copy -r ${WORKSPACE}/build/ D:\tomcat9\webapps\ROOT"
+                bat "rmdir -s -q D:\\tomcat9\\webapps\\ROOT"
+                bar "mkdir D:\\tomcat9\\webapps\\ROOT"
+                bat "copy -r ${WORKSPACE}/build/ D:\\tomcat9\\webapps\\ROOT"
             }
         }
     }
