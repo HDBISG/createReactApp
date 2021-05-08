@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 //import ExampleMemo from "./hook/useMemo1";
-import UseTitleTest from "./hook2/UseTitleTest";
+import Count from "./f1/Counter";
 
 
 function App() {
   return (
     <div>
-      <UseTitleTest />
+      <Count />
     </div>
   );
 }
