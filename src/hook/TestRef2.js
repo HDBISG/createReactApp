@@ -9,6 +9,9 @@ export default function TestRef2(props) {
       inputRef.current.type,
       inputRef.current.data
     );
+
+    console.dir(inputRef.current);
+
     console.log(inputRef, inputRef.current);
     inputRef.current.focus();
     inputRef.current.value = "abc";
@@ -17,12 +20,7 @@ export default function TestRef2(props) {
   return (
     <div>
       <input type="text" value="LiSi" />
-      <input
-        type="text"
-        value="ZhangSan"
-        ref={inputRef}
-        data="dataRefValue"
-      />
+      <input type="text" value="ZhangSan" ref={inputRef} data="dataRefValue" />
     </div>
   );
 }

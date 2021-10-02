@@ -6,15 +6,16 @@ import Count from "./f1/Counter";
 //import ArrayDepMount from "./f2/TestEffect";
 //import ArrayDepMount from "./f2/TestEffect2";
 import ArrayDepMount from "./f2/TestEffect3";
-import ExampleRef from "./hook3/ExampleRef";
-import UseCreateRef from "./hook3/UseCreateRef";
+import UseXstateTest from "./hook/UseXstateTest";
+import TestRef2 from "./hook/TestRef2";
 import ExampleMemo from "./hook/useMemo1";
 import TestUsePrevious from "./usePrevious/TestUsePrevious";
+import TestUsePreviousWrap from "./usePrevious/TestUsePreviousWrap";
 
 function App() {
   return (
     <div>
-      <ExampleMemo />
+      <TestUsePreviousWrap />
     </div>
   );
 }
