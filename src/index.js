@@ -11,8 +11,9 @@ import TestRef2 from "./hook/TestRef2";
 import ExampleMemo from "./hook/useMemo1";
 import TestUsePrevious from "./usePrevious/TestUsePrevious";
 import TestUsePreviousWrap from "./usePrevious/TestUsePreviousWrap";
+import Parent from "./content/t3/Parent";
 
-import Parent from "./content/t1/Parent";
+import TestReducer from "./testReducer/TestReducer7";
 
 function App() {
   return (
