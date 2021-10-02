@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 function App() {
-  const age = useState(19);
+  const age = useState(19); // age is Array
   const handleClick = () => age[1](age[0] + 1)
   //const handleDecreaseClick = () => setAge(age - 1)
 

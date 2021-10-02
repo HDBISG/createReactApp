@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react'
 
+// http://ourjs.com/wiki/view/react-hooks/useMemo
 export default function ExampleMemo() {
     let [ip, setIP] = useState(0)
     let [pv, setPV] = useState(0)
@@ -22,8 +23,8 @@ export default function ExampleMemo() {
     return (
         <div>
             <hr /><h1>useMemoEffect: IP:{ip}, PV:{pv}</h1>
-            <p>{memoMsg}</p>
             <p>{effectMsg} ??</p>
+            <p>{memoMsg}</p>
             <p>{memoIp}</p>
             <button onClick={() => { setIP(ip + 1); setPV(pv + 1) }}>Add IP</button>
             <button onClick={() => { setPV(pv + 1) }}>Add PV</button>
