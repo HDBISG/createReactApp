@@ -12,10 +12,12 @@ import ExampleMemo from "./hook/useMemo1";
 import TestUsePrevious from "./usePrevious/TestUsePrevious";
 import TestUsePreviousWrap from "./usePrevious/TestUsePreviousWrap";
 
+import Parent from "./content/t1/Parent";
+
 function App() {
   return (
     <div>
-      <TestUsePreviousWrap />
+      <Parent />
     </div>
   );
 }
