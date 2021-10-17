@@ -5,7 +5,7 @@ pipeline {
             steps {
                 bat "rmdir /s /q D:\\tomcat9\\webapps\\ROOT"
                 bat "mkdir D:\\tomcat9\\webapps\\ROOT"
-                bat "robocopy ${WORKSPACE}\\build\\ D:\\tomcat9\\webapps\\ROOT"
+                bat "xcopy ${WORKSPACE}\\build D:\\tomcat9\\webapps\\ROOT /E /Y"
             }
         }
     }
