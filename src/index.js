@@ -13,12 +13,12 @@ import TestUsePrevious from "./usePrevious/TestUsePrevious";
 import TestUsePreviousWrap from "./usePrevious/TestUsePreviousWrap";
 import Parent from "./content/t3/Parent";
 
-import TestReducer from "./testReducer/TestReducer7";
+import ComponentUseReactRedux from "./testRedux/ComponentUseReactRedux";
 
 function App() {
   return (
     <div>
-      <Parent />
+      <ComponentUseReactRedux />
     </div>
   );
 }
